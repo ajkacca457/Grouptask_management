@@ -5,6 +5,7 @@ import './App.css';
 import Searchbar from "./components/layout/Searchbar";
 import Mainnav from "./components/layout/Mainnav";
 import Tasks from "./components/tasks/Tasks";
+import Addbtn from "./components/layout/Addbtn";
 
 const App=()=> {
 
@@ -23,6 +24,7 @@ M.AutoInit();
 
       </div>
 
+      <Addbtn></Addbtn>
      
     </div>
   );

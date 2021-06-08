@@ -6,7 +6,7 @@ const Taskitem = ({task:{id,message,attention,date,member}}) => {
     return (
         <>
             <li className="collection-item">
-              <a href="#edit-log-modal" className={`modal-trigger ${attention?"red-text":"blue-text"}`}>{message}</a>          
+              <a href="#edit-task-modal" className={`modal-trigger ${attention?"red-text":"blue-text"}`}>{message}</a>          
               <br />       
               <span className="black-text">#{id}{" "}</span> 
               <span className="grey-text">was created by {" "}</span>
