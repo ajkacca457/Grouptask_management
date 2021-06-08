@@ -4,7 +4,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import './App.css';
 import Searchbar from "./components/layout/Searchbar";
 import Mainnav from "./components/layout/Mainnav";
-import Tasks from "./components/layout/Tasks";
+import Tasks from "./components/tasks/Tasks";
 
 const App=()=> {
 

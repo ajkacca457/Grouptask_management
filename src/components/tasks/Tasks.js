@@ -1,4 +1,5 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react';
+import Taskitem from "./Taskitem";
 
 const Tasks=()=> {
 
@@ -28,15 +29,15 @@ const Tasks=()=> {
 
     return (
         <div>
-            <ul className="collection-with-header">
-                <li className="collection-header">
+            <ul className="collection with-header" style={{padding:"10px"}}>
+                <li className="collection-header" >
                     <h5 className="center">All performed Tasks</h5>
                 </li>
 
                 {!loading && tasks.length===0? (<p>There are no tasks</p>):
                 tasks.map((item, index)=>{
                     return (
-                        <li className="" key={index}>{item.message}</li>
+                        <Taskitem key={item.id} task={item}/>
                     )
 
                 })}
