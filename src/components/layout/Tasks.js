@@ -7,30 +7,42 @@ const Tasks=()=> {
 
     useEffect(() => {
         getTasks();
-        console.log(tasks)
-        console.log(loading)
     },[])
 
 
     const getTasks= async ()=>{
+        setLoading(true);
         let response= await fetch("/tasks");
         let data=await response.json();
-        setLoading({
-            loading:true
-        })
+        setTasks(data);
+        setLoading(false);
+    }
 
-        setTasks({
-            tasks:data
-        })
+    if(loading){
+        return(
+            <h1>Loading...</h1>
+        )
     }
 
 
 
     return (
         <div>
-            
-            <p>All the tasks will be here</p>
+            <ul className="collection-with-header">
+                <li className="collection-header">
+                    <h5 className="center">All performed Tasks</h5>
+                </li>
 
+                {!loading && tasks.length===0? (<p>There are no tasks</p>):
+                tasks.map((item, index)=>{
+                    return (
+                        <li className="" key={index}>{item.message}</li>
+                    )
+
+                })}
+
+
+            </ul>
 
         </div>
     )
