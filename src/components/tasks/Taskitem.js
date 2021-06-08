@@ -14,7 +14,7 @@ const Taskitem = ({task:{id,message,attention,date,member}}) => {
               <br/>
               <span>Created at: {" "}</span><Moment format="MMMM Do YYYY, h:mm:ss a"></Moment>
 
-                <a href="!#" className="secondary-content red-text"><i class="material-icons">close</i></a>
+                <a href="!#" className="secondary-content red-text"><i className="material-icons">close</i></a>
         
               </li>
         </>

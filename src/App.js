@@ -6,6 +6,7 @@ import Searchbar from "./components/layout/Searchbar";
 import Mainnav from "./components/layout/Mainnav";
 import Tasks from "./components/tasks/Tasks";
 import Addbtn from "./components/layout/Addbtn";
+import Addtaskmodal from "./components/tasks/Addtaskmodal";
 
 const App=()=> {
 
@@ -23,8 +24,8 @@ M.AutoInit();
       <Tasks/>
 
       </div>
-
-      <Addbtn></Addbtn>
+      <Addbtn/>
+      <Addtaskmodal/> 
      
     </div>
   );

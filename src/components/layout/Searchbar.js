@@ -4,7 +4,7 @@ const Searchbar=()=> {
     return (
     <>
      <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper light-blue lighten-3">
       <form>
         <div className="input-field">
           <input id="search" type="search" required />
