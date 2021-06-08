@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Taskitem from "./Taskitem";
+import Preloader from "../layout/Preloader";
 
 const Tasks=()=> {
 
@@ -21,7 +22,7 @@ const Tasks=()=> {
 
     if(loading){
         return(
-            <h1>Loading...</h1>
+            <Preloader/>
         )
     }
 
