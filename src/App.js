@@ -7,6 +7,7 @@ import Mainnav from "./components/layout/Mainnav";
 import Tasks from "./components/tasks/Tasks";
 import Addbtn from "./components/layout/Addbtn";
 import Addtaskmodal from "./components/tasks/Addtaskmodal";
+import Edittaskmodal from "./components/tasks/Edittaskmodal";
 
 const App=()=> {
 
@@ -25,8 +26,9 @@ M.AutoInit();
 
       </div>
       <Addbtn/>
-      <Addtaskmodal/> 
-     
+      <Addtaskmodal/>
+      <Edittaskmodal/> 
+            
     </div>
   );
 }

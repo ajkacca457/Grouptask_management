@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import M from "materialize-css/dist/js/materialize";
 
- const Addtaskmodal=()=> {
+ const Edittaskmodal=()=> {
 
     const [message,setMessage]= useState("");
     const [member,setMember]=useState("");
@@ -13,7 +13,7 @@ import M from "materialize-css/dist/js/materialize";
             M.toast({html:"please enter your task name and select your name."})
         } else {
             console.log(member,message,attention);
-            //clearing field
+            //clear field
             setMessage("");
             setMember("");
             setAttention(false);
@@ -21,9 +21,9 @@ import M from "materialize-css/dist/js/materialize";
     }
 
     return (
-        <div id="add-task-modal" className="modal" style={modalStyle}>
+        <div id="edit-task-modal" className="modal" style={modalStyle}>
                 <div className="modal-content">
-                    <h6 style={{marginBottom:"20px"}}> <strong>Enter the task you are working on:</strong></h6>
+                    <h6 style={{marginBottom:"20px"}}> <strong>Edit or change the task detail:</strong></h6>
                 
                 <div className="row">
                     <div className="input-field">
@@ -98,4 +98,4 @@ const modalStyle={
 
 
 
-export default Addtaskmodal;
+export default Edittaskmodal;
