@@ -9,6 +9,7 @@ import Addbtn from "./components/layout/Addbtn";
 import Addtaskmodal from "./components/tasks/Addtaskmodal";
 import Edittaskmodal from "./components/tasks/Edittaskmodal";
 import Addmembermodal from "./components/members/Addmembermodal";
+import Memberlist from "./components/members/Memberlist";
 
 const App=()=> {
 
@@ -30,6 +31,7 @@ M.AutoInit();
       <Addtaskmodal/>
       <Edittaskmodal/>
       <Addmembermodal/> 
+      <Memberlist/>
             
     </div>
   );
