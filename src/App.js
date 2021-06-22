@@ -10,6 +10,9 @@ import Addtaskmodal from "./components/tasks/Addtaskmodal";
 import Edittaskmodal from "./components/tasks/Edittaskmodal";
 import Addmembermodal from "./components/members/Addmembermodal";
 import Memberlist from "./components/members/Memberlist";
+import store from "./store";
+import { Provider } from "react-redux";
+
 
 const App=()=> {
 
@@ -19,6 +22,7 @@ M.AutoInit();
 });
 
   return (
+    <Provider store={store}>  
     <div className="App">
      <Mainnav/>
 
@@ -34,6 +38,7 @@ M.AutoInit();
       <Memberlist/>
             
     </div>
+    </Provider>
   );
 }
 

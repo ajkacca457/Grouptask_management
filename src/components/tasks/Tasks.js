@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Taskitem from "./Taskitem";
 import Preloader from "../layout/Preloader";
+import { connect } from 'react-redux';
 
 const Tasks=()=> {
 
@@ -50,5 +51,15 @@ const Tasks=()=> {
     )
 }
 
+const mapStateToProps=(state)=>{
 
-export default Tasks;
+console.log(state);
+return {
+    tasks:state.tasks
+}
+
+}
+
+
+
+export default connect(mapStateToProps)(Tasks) ;
