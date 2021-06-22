@@ -52,5 +52,14 @@ return {
 }
 
 
+const mapDispatchToProps=(dispatch)=>{
 
-export default connect(mapStateToProps,{getTasks})(Tasks) ;
+    return {
+        getTasks: ()=>{dispatch(getTasks())}
+    }
+
+}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Tasks) ;
