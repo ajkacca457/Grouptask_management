@@ -2,26 +2,16 @@ import React,{useState,useEffect} from 'react';
 import Taskitem from "./Taskitem";
 import Preloader from "../layout/Preloader";
 import { connect } from 'react-redux';
+import {getTasks} from "../../actions/actions";
 
-const Tasks=()=> {
-
-    const [tasks,setTasks]=useState([]);
-    const [loading,setLoading]=useState(false);
+const Tasks=({tasks,loading,getTasks})=> {
 
     useEffect(() => {
         getTasks();
     },[])
 
 
-    const getTasks= async ()=>{
-        setLoading(true);
-        let response= await fetch("/tasks");
-        let data=await response.json();
-        setTasks(data);
-        setLoading(false);
-    }
-
-    if(loading){
+    if(loading || tasks===null){
         return(
             <Preloader/>
         )
@@ -55,11 +45,12 @@ const mapStateToProps=(state)=>{
 
 console.log(state);
 return {
-    tasks:state.tasks
+    tasks:state.tasks.tasks,
+    loading:state.tasks.loading
 }
 
 }
 
 
 
-export default connect(mapStateToProps)(Tasks) ;
+export default connect(mapStateToProps,{getTasks})(Tasks) ;
