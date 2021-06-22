@@ -1,3 +1,5 @@
+import { GET_TASKS,SET_LOADING,TASKS_ERROR } from "../actions/types";
+
 
 const initialState={
     tasks:null,
@@ -9,7 +11,15 @@ const initialState={
 
 const taskReducer=(state=initialState,action)=>{
 
-  return initialState;
+ switch (action.type) {
+     case SET_LOADING:
+        return {
+            ...state,
+            loading:true
+        }             
+      default:
+        return state;         
+ }   
 
 }
 
