@@ -1,4 +1,4 @@
-import { GET_MEMBERS, SET_LOADING, TASKS_ERROR } from "../actions/types";
+import { GET_MEMBERS, SET_LOADING, TASKS_ERROR, ADD_MEMBER } from "../actions/types";
 
 const initialState={
         members: null,
@@ -16,6 +16,13 @@ const memberReducer=(state=initialState,action)=>{
             members:action.payload,
             loading:false
         }
+
+        case ADD_MEMBER: 
+        return {
+            ...state,
+            members:[...state.members,action.payload]
+        }
+
         case SET_LOADING:
             return {
                 ...state,

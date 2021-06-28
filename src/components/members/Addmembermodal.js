@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import M from "materialize-css/dist/js/materialize";
+import { connect } from 'react-redux';
+import { addMember } from '../../actions/actions';
 
- const Addmembermodal=()=> {
+ const Addmembermodal=({addMember})=> {
 
     const [firstname,setFirstname]= useState("");
     const [lastname,setLastname]=useState("");
@@ -11,7 +13,12 @@ import M from "materialize-css/dist/js/materialize";
         if(firstname===""||lastname===""){
             M.toast({html:"please enter your name properly"})
         } else {
-            console.log(firstname,lastname);
+
+            const newMember={
+                firstname,lastname
+            }
+            addMember(newMember);
+            M.toast({html:"New member added!"})
             //clear field
             setFirstname("");
             setLastname("");
@@ -79,5 +86,14 @@ const modalStyle={
 }
 
 
+const mapDispatchToProps=(dispatch)=>{
+return {
+addMember:(member)=>{dispatch(addMember(member))}
 
-export default Addmembermodal;
+}
+
+}
+
+
+
+export default connect(null,mapDispatchToProps)(Addmembermodal);
