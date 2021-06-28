@@ -1,4 +1,4 @@
-import { GET_TASKS, SET_LOADING, TASKS_ERROR } from "./types";
+import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK } from "./types";
 
 
 export const getTasks=()=> async (dispatch)=>{
@@ -31,3 +31,29 @@ export const setLoading=()=>{
 }
 
 
+
+export const addTask=(task)=> async (dispatch)=>{
+    try {
+        setLoading();
+        let response= await fetch("/tasks", {
+            method:"POST",
+            body: JSON.stringify(task),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        let data=await response.json();
+
+        dispatch({
+            type:ADD_TASK,
+            payload:data
+        })
+ 
+    } catch (error) {
+        dispatch({
+            type:TASKS_ERROR,
+            payload:error.response.data
+        })
+    }
+    }
+    

@@ -1,4 +1,4 @@
-import { GET_TASKS,SET_LOADING,TASKS_ERROR } from "../actions/types";
+import { GET_TASKS,SET_LOADING,TASKS_ERROR, ADD_TASK } from "../actions/types";
 
 
 const initialState={
@@ -28,7 +28,14 @@ const taskReducer=(state=initialState,action)=>{
             return {
                 ...state,
                 error:action.payload
-            }                 
+            }
+            
+            case ADD_TASK:
+                return {
+                    ...state,
+                    tasks:[...state.tasks,action.payload],
+                    loading:false
+                }   
       default:
         return state;         
  }   

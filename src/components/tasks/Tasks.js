@@ -4,6 +4,7 @@ import Preloader from "../layout/Preloader";
 import { connect } from 'react-redux';
 import {getTasks} from "../../actions/actions";
 
+
 const Tasks=({tasks,loading,getTasks})=> {
 
     useEffect(() => {

@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import M from "materialize-css/dist/js/materialize";
+import { connect } from 'react-redux';
+import {addTask} from "../../actions/actions";
 
- const Addtaskmodal=()=> {
+
+ const Addtaskmodal=({addTask})=> {
 
     const [message,setMessage]= useState("");
     const [member,setMember]=useState("");
@@ -9,10 +12,21 @@ import M from "materialize-css/dist/js/materialize";
 
 
     const onSubmitinfo=()=>{
+
+
         if(message===""||member===""){
             M.toast({html:"please enter your task name and select your name."})
         } else {
-            console.log(member,message,attention);
+            const newTask={
+                message,
+                attention,
+                member,
+                date: new Date()              
+            }
+
+           addTask(newTask);
+           M.toast({html:`new task added by ${member}`})
+
             //clearing field
             setMessage("");
             setMember("");
@@ -98,4 +112,14 @@ const modalStyle={
 
 
 
-export default Addtaskmodal;
+
+const mapDispatchToProps=(dispatch)=>{
+
+    return {
+        addTask:(task)=>{dispatch(addTask(task))}
+    }
+}
+
+
+
+export default connect(null, mapDispatchToProps)(Addtaskmodal);
