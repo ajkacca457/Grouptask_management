@@ -1,5 +1,11 @@
-import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK, DELETE_TASK } from "./types";
+import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK, DELETE_TASK,GET_MEMBERS } from "./types";
 
+export const setLoading=()=>{
+    return {
+        type: SET_LOADING
+    }
+
+}
 
 export const getTasks=()=> async (dispatch)=>{
     try {
@@ -21,15 +27,24 @@ export const getTasks=()=> async (dispatch)=>{
     }
     
 
-
-export const setLoading=()=>{
-    return {
-        type: SET_LOADING
-    }
-
-
-}
-
+    export const getMembers=()=> async (dispatch)=>{
+        try {
+            setLoading();
+            let response= await fetch("/members");
+            let data=await response.json();
+    
+            dispatch({
+                type:GET_MEMBERS,
+                payload:data
+            })
+     
+        } catch (error) {
+            dispatch({
+                type:TASKS_ERROR,
+                payload:error.response.data
+            })
+        }
+        }    
 
 
 export const addTask=(task)=> async (dispatch)=>{
