@@ -1,4 +1,4 @@
-import { GET_MEMBERS, SET_LOADING, TASKS_ERROR, ADD_MEMBER } from "../actions/types";
+import { GET_MEMBERS, SET_LOADING, TASKS_ERROR, ADD_MEMBER,DELETE_MEMBER } from "../actions/types";
 
 const initialState={
         members: null,
@@ -34,6 +34,13 @@ const memberReducer=(state=initialState,action)=>{
                 ...state,
                 loading:action.payload
             }
+
+            case DELETE_MEMBER:
+                return {
+                    ...state,
+                    members:state.members.filter(item=> item.id!==action.payload),
+                    loading:false
+                }  
 
         default:
             return state;

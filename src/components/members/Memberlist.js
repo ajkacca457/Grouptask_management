@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import Member from "./Member";
 import { connect } from 'react-redux';
 import { getMembers } from '../../actions/actions';
@@ -31,7 +31,6 @@ const Memberlist=({loading,members,getMembers})=> {
 }
 
 const mapStateToProps=(state)=>{
-    console.log(state.members)
     return {
         members:state.members.members,
         loading:state.members.loading

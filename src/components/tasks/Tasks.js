@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import Taskitem from "./Taskitem";
 import Preloader from "../layout/Preloader";
 import { connect } from 'react-redux';
@@ -43,8 +43,6 @@ const Tasks=({tasks,loading,getTasks})=> {
 }
 
 const mapStateToProps=(state)=>{
-
-console.log(state);
 return {
     tasks:state.tasks.tasks,
     loading:state.tasks.loading

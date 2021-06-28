@@ -1,4 +1,4 @@
-import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK, DELETE_TASK,GET_MEMBERS, ADD_MEMBER } from "./types";
+import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK, DELETE_TASK,GET_MEMBERS, ADD_MEMBER, DELETE_MEMBER } from "./types";
 
 export const setLoading=()=>{
     return {
@@ -41,7 +41,7 @@ export const getTasks=()=> async (dispatch)=>{
         } catch (error) {
             dispatch({
                 type:TASKS_ERROR,
-                payload:error.response.data
+                payload:error.response.statusText
             })
         }
         }    
@@ -93,7 +93,7 @@ export const addTask=(task)=> async (dispatch)=>{
         } catch (error) {
             dispatch({
                 type:TASKS_ERROR,
-                payload:error.response.data
+                payload:error.response.statusText
             })
         }
         }
@@ -119,3 +119,24 @@ export const addTask=(task)=> async (dispatch)=>{
             })
         }
         }
+
+
+        export const deleteMember=(id)=> async (dispatch)=>{
+            try {
+                setLoading();
+                await fetch(`/members/${id}`, {
+                    method:"DELETE",
+                });
+                
+                dispatch({
+                    type:DELETE_MEMBER,
+                    payload:id
+                })
+         
+            } catch (error) {
+                dispatch({
+                    type:TASKS_ERROR,
+                    payload:error.response.statusText
+                })
+            }
+            }

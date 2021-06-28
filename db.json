@@ -1,11 +1,11 @@
 {
   "tasks": [
     {
-      "message": "have to update string theory",
-      "attention": true,
+      "message": "play guitar",
+      "attention": false,
       "member": "Oliver Queen",
-      "date": "2021-06-28T11:58:51.187Z",
-      "id": 2
+      "date": "2021-06-28T13:53:57.882Z",
+      "id": 3
     }
   ],
   "members": [
@@ -28,11 +28,6 @@
       "id": 4,
       "firstname": "Selina",
       "lastname": "Kyle"
-    },
-    {
-      "firstname": "Sansa",
-      "lastname": "Stark",
-      "id": 5
     }
   ]
 }
