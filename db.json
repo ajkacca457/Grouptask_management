@@ -1,39 +1,11 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "message": "Completed the design mock",
-      "attention": false,
-      "date": "07-06-2021",
-      "member": "Robin"
-    },
-    {
-      "id": 2,
-      "message": "Completed the footer section",
-      "attention": true,
-      "date": "05-06-2021",
-      "member": "Bruce"
-    },
-    {
-      "id": 3,
-      "message": "Worked on fixing the bug",
-      "attention": false,
-      "date": "07-06-2021",
-      "member": "Oliver"
-    },
-    {
-      "id": 4,
-      "message": "Created html files and updated on github",
-      "attention": true,
-      "date": "04-06-2021",
-      "member": "Selina"
-    },
-    {
       "message": "have to update string theory",
       "attention": true,
       "member": "Oliver Queen",
-      "date": "2021-06-28T11:24:33.056Z",
-      "id": 5
+      "date": "2021-06-28T11:58:51.187Z",
+      "id": 2
     }
   ],
   "members": [
