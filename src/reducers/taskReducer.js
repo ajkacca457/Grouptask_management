@@ -1,4 +1,10 @@
-import { GET_TASKS,SET_LOADING,TASKS_ERROR, ADD_TASK, DELETE_TASK } from "../actions/types";
+import { GET_TASKS,
+        SET_LOADING,
+        TASKS_ERROR, 
+        ADD_TASK, 
+        DELETE_TASK,
+        SET_CURRENT_TASK,
+        CLEAR_CURRENT_TASK } from "../actions/types";
 
 
 const initialState={
@@ -35,8 +41,19 @@ const taskReducer=(state=initialState,action)=>{
                     ...state,
                     tasks:[...state.tasks,action.payload],
                     loading:false
-                }   
+                } 
+                
+              case SET_CURRENT_TASK: 
+              return {
+                  ...state,
+                  current: action.payload
+              }  
 
+            case CLEAR_CURRENT_TASK:
+                return {
+                    ...state,
+                    current:null
+                }
 
                 case DELETE_TASK:
                     return {

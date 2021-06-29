@@ -1,4 +1,16 @@
-import { GET_TASKS, SET_LOADING, TASKS_ERROR, ADD_TASK, DELETE_TASK,GET_MEMBERS, ADD_MEMBER, DELETE_MEMBER } from "./types";
+import { 
+    GET_TASKS,
+    SET_LOADING,
+    TASKS_ERROR, 
+    ADD_TASK, 
+    DELETE_TASK,
+    GET_MEMBERS, 
+    ADD_MEMBER, 
+    DELETE_MEMBER,
+    SET_CURRENT_TASK,
+    CLEAR_CURRENT_TASK } from "./types";
+
+//general action for loading
 
 export const setLoading=()=>{
     return {
@@ -6,6 +18,8 @@ export const setLoading=()=>{
     }
 
 }
+
+//all actions for tasks handling 
 
 export const getTasks=()=> async (dispatch)=>{
     try {
@@ -26,25 +40,6 @@ export const getTasks=()=> async (dispatch)=>{
     }
     }
     
-
-    export const getMembers=()=> async (dispatch)=>{
-        try {
-            setLoading();
-            let response= await fetch("/members");
-            let data=await response.json();
-    
-            dispatch({
-                type:GET_MEMBERS,
-                payload:data
-            })
-     
-        } catch (error) {
-            dispatch({
-                type:TASKS_ERROR,
-                payload:error.response.statusText
-            })
-        }
-        }    
 
 
 export const addTask=(task)=> async (dispatch)=>{
@@ -72,6 +67,64 @@ export const addTask=(task)=> async (dispatch)=>{
     }
     }
 
+ export const setCurrenttask=(task)=>{
+
+        return {
+            type:SET_CURRENT_TASK,
+            payload:task
+        }
+
+    }
+    
+export const clearCurrenttask=()=>{
+        return {
+            type:CLEAR_CURRENT_TASK
+        }
+
+    }
+
+    export const deleteTask=(id)=> async (dispatch)=>{
+        try {
+            setLoading();
+            let response= await fetch(`/tasks/${id}`, {
+                method:"DELETE",
+            });
+            let data=await response.json();
+    
+            dispatch({
+                type:DELETE_TASK,
+                payload:id
+            })
+     
+        } catch (error) {
+            dispatch({
+                type:TASKS_ERROR,
+                payload:error.response.data
+            })
+        }
+        }
+
+//all actions for members handling 
+
+        export const getMembers=()=> async (dispatch)=>{
+            try {
+                setLoading();
+                let response= await fetch("/members");
+                let data=await response.json();
+        
+                dispatch({
+                    type:GET_MEMBERS,
+                    payload:data
+                })
+         
+            } catch (error) {
+                dispatch({
+                    type:TASKS_ERROR,
+                    payload:error.response.statusText
+                })
+            }
+            }    
+        
 
     export const addMember=(member)=> async (dispatch)=>{
         try {
@@ -98,27 +151,6 @@ export const addTask=(task)=> async (dispatch)=>{
         }
         }
     
-
-    export const deleteTask=(id)=> async (dispatch)=>{
-        try {
-            setLoading();
-            let response= await fetch(`/tasks/${id}`, {
-                method:"DELETE",
-            });
-            let data=await response.json();
-    
-            dispatch({
-                type:DELETE_TASK,
-                payload:id
-            })
-     
-        } catch (error) {
-            dispatch({
-                type:TASKS_ERROR,
-                payload:error.response.data
-            })
-        }
-        }
 
 
         export const deleteMember=(id)=> async (dispatch)=>{
