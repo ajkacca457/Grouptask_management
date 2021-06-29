@@ -24,7 +24,7 @@ const Tasks=({tasks,loading,getTasks})=> {
         <div>
             <ul className="collection with-header" style={{padding:"10px"}}>
                 <li className="collection-header" >
-                    <h5 className="center">All performed Tasks</h5>
+                    <h5 className="center deep-purple accent-1" style={{padding:"2% 1%", borderRadius:"5px", color:"white"}}>ALL TASKS</h5>
                 </li>
 
                 {!loading && tasks.length===0? (<p>There are no tasks</p>):

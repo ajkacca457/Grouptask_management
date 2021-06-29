@@ -16,7 +16,7 @@ const Searchbar=({searchTasks})=> {
     return (
     <>
      <nav>
-        <div className="nav-wrapper light-blue lighten-3">
+        <div className="nav-wrapper deep-purple accent-1">
       <form>
         <div className="input-field">
           <input id="search" type="search" required placeholder="Search tasks" ref={text} onChange={changeTask}/>

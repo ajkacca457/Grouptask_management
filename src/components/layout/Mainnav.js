@@ -3,7 +3,7 @@ import React from 'react'
 const Mainnav=()=> {
     return (
         <>
- <div className="blue lighten-1" style={{padding:"5px"}}>
+ <div className="deep-purple accent-1" style={{padding:"5px"}}>
         <div className="container" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
         <div className="logo" style={{display:"flex",alignItems:"center"}}>
         <img src="https://img.icons8.com/color/48/000000/football-team.png"/>

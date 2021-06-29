@@ -20,13 +20,13 @@ console.log(task)
     return (
         <>
             <li className="collection-item">
-              <a href="#edit-task-modal" className={`modal-trigger ${task.attention?"red-text":"blue-text"}`} onClick={()=>setCurrenttask(task)}>{task.message}</a>          
+              <a href="#edit-task-modal" className={`modal-trigger ${task.attention?"red-text":"blue-text"}`} onClick={()=>setCurrenttask(task)}><h5 style={{fontSize:"130%", textTransform:"capitalize", margin:"5px 0px"}}>{task.message}</h5></a>          
               <br />       
-              <span className="black-text">#{task.id}{" "}</span> 
-              <span className="grey-text">was created by {" "}</span>
-              <strong className="black-text">{task.member} {" "}</strong>
+              <span className="black-text" style={{fontSize:"110%"}}>#{task.id}{" "}</span> 
+              <span className="grey-text" style={{fontSize:"110%"}}>was created by {" "}</span>
+              <strong className="black-text" style={{fontSize:"110%"}}>{task.member} {" "}</strong>
               <br/>
-              <span>Created at: {" "}</span><Moment format="MMMM Do YYYY, h:mm:ss a"></Moment>
+              <span style={{fontSize:"110%"}}>Created at: {" "}</span><Moment format="MMMM Do YYYY, h:mm:ss a" style={{fontSize:"110%"}}></Moment>
 
                 <a href="!#"><i className="material-icons secondary-content red-text" onClick={deleteItem} style={{cursor:"pointer"}}>close</i></a>
         
