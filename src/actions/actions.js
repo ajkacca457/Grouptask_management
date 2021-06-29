@@ -3,7 +3,8 @@ import {
     SET_LOADING,
     TASKS_ERROR, 
     ADD_TASK,
-    UPDATE_TASK, 
+    UPDATE_TASK,
+    SEARCH_TASK, 
     DELETE_TASK,
     GET_MEMBERS, 
     ADD_MEMBER, 
@@ -93,6 +94,25 @@ export const addTask=(task)=> async (dispatch)=>{
             })
         }
         }
+
+        export const searchTasks=(text)=> async (dispatch)=>{
+            try {
+                setLoading();
+                let response= await fetch(`/tasks?q=${text}`);
+                let data=await response.json();
+        
+                dispatch({
+                    type:SEARCH_TASK,
+                    payload:data
+                })
+         
+            } catch (error) {
+                dispatch({
+                    type:TASKS_ERROR,
+                    payload:error.response.data
+                })
+            }
+            }
 
 
  export const setCurrenttask=(task)=>{

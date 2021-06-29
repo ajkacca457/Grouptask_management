@@ -1,13 +1,25 @@
-import React from 'react'
+import React, {useRef} from 'react';
+import { connect } from 'react-redux';
+import { searchTasks } from '../../actions/actions';
 
-const Searchbar=()=> {
+
+const Searchbar=({searchTasks})=> {
+
+  const text= useRef("")
+
+
+  const changeTask=(e)=>{
+     searchTasks(text.current.value);
+
+  }
+
     return (
     <>
      <nav>
         <div className="nav-wrapper light-blue lighten-3">
       <form>
         <div className="input-field">
-          <input id="search" type="search" required />
+          <input id="search" type="search" required placeholder="Search tasks" ref={text} onChange={changeTask}/>
           <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
           <i className="material-icons">close</i>
             </div>
@@ -19,5 +31,14 @@ const Searchbar=()=> {
 }
 
 
+const mapDispatchToProps=(dispatch)=>{
 
-export default Searchbar;
+  return {
+      searchTasks:(text)=>{dispatch(searchTasks(text))}  
+  }
+
+}
+
+
+
+export default connect(null,mapDispatchToProps)(Searchbar);

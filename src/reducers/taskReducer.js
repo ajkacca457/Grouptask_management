@@ -2,7 +2,8 @@ import { GET_TASKS,
         SET_LOADING,
         TASKS_ERROR, 
         ADD_TASK,
-        UPDATE_TASK, 
+        UPDATE_TASK,
+        SEARCH_TASK, 
         DELETE_TASK,
         SET_CURRENT_TASK,
         CLEAR_CURRENT_TASK } from "../actions/types";
@@ -50,6 +51,13 @@ const taskReducer=(state=initialState,action)=>{
                         tasks: state.tasks.map(item=> item.id===action.payload.id?action.payload:item),
                         loading:false
                     } 
+
+                    case SEARCH_TASK:
+                        return {
+                            ...state,
+                            tasks: action.payload,
+                            loading:false
+                        } 
                 
               case SET_CURRENT_TASK: 
               return {
