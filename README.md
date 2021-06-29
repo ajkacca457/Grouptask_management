@@ -2,7 +2,8 @@
 
 This is a react project that uses redux for state management. The main aim of this project was to create a task manager that can be used in a group. Group member can add their name to the group. It is useful for a small group that want to do a group project. A group can delegate different tasks among group members and group members can update their status in the app. The app will show which task was performed by which group member. Group member can add new members, edit the status of their tasks and set importance of the task. Right now the app doesnt have any authentication or authorization functionalities. In future, the aim is to make it a full fledged Project management app.
 
-<img src="images/picture1.PNG" alt="projectimg">
+<img src="./src/images/interface1.PNG" alt="projectimg">
+<img src="./src/images/interface2.PNG" alt="projectimg">
 
 </h1>Additional description about the project and its features.</h1>
 
