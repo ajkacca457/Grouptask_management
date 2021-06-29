@@ -1,18 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import M from "materialize-css/dist/js/materialize";
+import { connect } from 'react-redux';
+import { updateTask,clearCurrenttask } from '../../actions/actions';
 
- const Edittaskmodal=()=> {
+ const Edittaskmodal=({currenttask,updateTask,clearCurrenttask})=> {
 
     const [message,setMessage]= useState("");
     const [member,setMember]=useState("");
     const [attention, setAttention]= useState(false);
 
 
+    useEffect(() => {
+        if(currenttask){
+          setMessage(currenttask.message);
+          setMember(currenttask.member);
+          setAttention(currenttask.attention);
+  
+        }
+      }, [currenttask])
+  
+
     const onSubmitinfo=()=>{
         if(message===""||member===""){
             M.toast({html:"please enter your task name and select your name."})
         } else {
-            console.log(member,message,attention);
+
+            const updatetask={
+                id:currenttask.id,
+                message,
+                attention,
+                member,
+                date: new Date()   
+            }
+
+            updateTask(updatetask);
+            M.toast({html:`Task updated by ${member}!"`})
             //clear field
             setMessage("");
             setMember("");
@@ -35,11 +57,6 @@ import M from "materialize-css/dist/js/materialize";
                         setMessage(e.target.value)
                     }}
                     />
-
-                    <label htmlFor="message" className="active">
-                        Your Task
-                    </label>
-
                     </div>
                 </div>
 
@@ -96,6 +113,26 @@ const modalStyle={
     height:"50%"
 }
 
+const mapStateToProps=(state)=>{
+return {
+currenttask: state.tasks.current
+    
+}
+
+}
 
 
-export default Edittaskmodal;
+const mapDispatchToProps=(dispatch)=>{
+
+return {
+updateTask: (task)=>{dispatch(updateTask(task))},
+clearCurrenttask: ()=>{dispatch(clearCurrenttask())}
+
+}
+
+}
+
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Edittaskmodal);

@@ -1,18 +1,18 @@
 {
   "tasks": [
     {
-      "message": "2nd chapter worksheet",
-      "attention": false,
-      "member": "Barry Allen",
-      "date": "2021-06-28T16:48:02.719Z",
-      "id": 4
+      "id": 7,
+      "message": "play guitar with friends",
+      "attention": true,
+      "member": "Bruce Wayne",
+      "date": "2021-06-29T07:54:35.972Z"
     },
     {
-      "message": "transistor and transformer chapter",
+      "id": 8,
+      "message": "update practical task",
       "attention": false,
-      "member": "Oliver Queen",
-      "date": "2021-06-28T16:49:04.007Z",
-      "id": 6
+      "member": "Barry Allen",
+      "date": "2021-06-29T07:47:53.924Z"
     }
   ],
   "members": [
