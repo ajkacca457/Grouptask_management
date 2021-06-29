@@ -2,6 +2,8 @@ import React, {useState,useEffect} from 'react';
 import M from "materialize-css/dist/js/materialize";
 import { connect } from 'react-redux';
 import { updateTask,clearCurrenttask } from '../../actions/actions';
+import Memberselect from '../members/memberselect';
+
 
  const Edittaskmodal=({currenttask,updateTask,clearCurrenttask})=> {
 
@@ -61,17 +63,19 @@ import { updateTask,clearCurrenttask } from '../../actions/actions';
                 </div>
 
                 <div className="row">
-                    <div className="input-field">
+                    <div>
                     <select 
                     name="member"
                     value={member}
+                    className="browser-default"
                     onChange={(e)=>{
                         setMember(e.target.value)
                     }}
                     >
-                        <option value="Bruce Wayne">Bruce Wayne</option>
-                        <option value="Oliver Queen">Oliver Queen</option>
-                        <option value="Barry Allen">Barry Allen</option>
+                         <option value="" disabled>
+                        Select Members:
+                    </option>
+                    <Memberselect/>
                     </select>
                     </div>
                 </div>
