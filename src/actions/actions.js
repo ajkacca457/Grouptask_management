@@ -2,7 +2,8 @@ import {
     GET_TASKS,
     SET_LOADING,
     TASKS_ERROR, 
-    ADD_TASK, 
+    ADD_TASK,
+    UPDATE_TASK, 
     DELETE_TASK,
     GET_MEMBERS, 
     ADD_MEMBER, 
@@ -66,6 +67,33 @@ export const addTask=(task)=> async (dispatch)=>{
         })
     }
     }
+
+
+    export const updateTask=(task)=> async (dispatch)=>{
+        try {
+            setLoading();
+            let response= await fetch(`/tasks/${task.id}`, {
+                method:"PUT",
+                body: JSON.stringify(task),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            let data=await response.json();
+    
+            dispatch({
+                type:UPDATE_TASK,
+                payload:data
+            })
+     
+        } catch (error) {
+            dispatch({
+                type:TASKS_ERROR,
+                payload:error.response.data
+            })
+        }
+        }
+
 
  export const setCurrenttask=(task)=>{
 
